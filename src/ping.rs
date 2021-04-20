@@ -140,8 +140,8 @@ pub struct PingChain {
 impl PingChain {
     fn new(pinger: Pinger, hostname: IpAddr) -> Self {
         Self {
-            pinger: pinger,
-            hostname: hostname,
+            pinger,
+            hostname,
             ident: None,
             seq_cnt: None,
             timeout: None,
@@ -216,7 +216,7 @@ pub struct PingChainStream {
 impl PingChainStream {
     fn new(chain: PingChain) -> Self {
         Self {
-            chain: chain,
+            chain,
             future: None,
         }
     }
@@ -318,8 +318,8 @@ impl Pinger {
         };
 
         let inner = PingInner {
-            sockets: sockets,
-            state: state,
+            sockets,
+            state,
             _v4_finalize: v4_finalize,
             _v6_finalize: v6_finalize,
         };
