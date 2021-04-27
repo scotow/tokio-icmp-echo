@@ -1,6 +1,6 @@
-//! tokio-ping is an asynchronous ICMP pinging library.
+//! tokio-icmp-echo is an asynchronous ICMP pinging library.
 //!
-//! The repository is located at <https://github.com/knsd/tokio-ping/>.
+//! The repository is located at <https://github.com/jcgruenhage/tokio-icmp-echo/>.
 //! # Usage example
 //!
 //! Note, sending and receiving ICMP packets requires privileges.
@@ -12,7 +12,7 @@
 //! async fn main() {
 //!     let addr = std::env::args().nth(1).unwrap().parse().unwrap();
 //!
-//!     let pinger = tokio_ping::Pinger::new().await.unwrap();
+//!     let pinger = tokio_icmp_echo::Pinger::new().await.unwrap();
 //!     let stream = pinger.chain(addr).stream();
 //!     stream.take(3).for_each(|mb_time| {
 //!         match mb_time {

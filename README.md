@@ -1,9 +1,8 @@
-# tokio-ping
-[![Build Status](https://travis-ci.org/knsd/tokio-ping.svg?branch=master)](https://travis-ci.org/knsd/tokio-ping)
-[![Latest Version](https://img.shields.io/crates/v/tokio-ping.svg)](https://crates.io/crates/tokio-ping/)
-[![docs](https://docs.rs/tokio-ping/badge.svg)](https://docs.rs/tokio-ping)
+# tokio-icmp-echo
+[![Latest Version](https://img.shields.io/crates/v/tokio-icmp-echo.svg)](https://crates.io/crates/tokio-icmp-echo/)
+[![docs](https://docs.rs/tokio-icmp-echo/badge.svg)](https://docs.rs/tokio-icmp-echo)
 
-tokio-ping is an asynchronous ICMP pinging library.
+tokio-icmp-echo is an asynchronous ICMP pinging library. It was originally written by Fedor Gogolev, a.k.a. knsd, and distributed under the name tokio-ping. This here is a fork that includes mostly maintenance work, to make sure it works in the current state of the async rust ecosystem.
 
 # Usage example
 
@@ -13,14 +12,14 @@ Note, sending and receiving ICMP packets requires privileges.
 extern crate futures;
 extern crate tokio;
 
-extern crate tokio_ping;
+extern crate tokio_icmp_echo;
 
 use futures::{Future, Stream};
 
 fn main() {
     let addr = std::env::args().nth(1).unwrap().parse().unwrap();
 
-    let pinger = tokio_ping::Pinger::new();
+    let pinger = tokio_icmp_echo::Pinger::new();
     let stream = pinger.and_then(move |pinger| Ok(pinger.chain(addr).stream()));
     let future = stream.and_then(|stream| {
         stream.take(3).for_each(|mb_time| {
