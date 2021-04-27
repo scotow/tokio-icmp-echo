@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2021-04-27
+This is a big change in tokio-ping, now known as tokio-icmp-echo: This is the first release of a fork of tokio-ping, which now works on current versions of the dependencies from the async rust ecosystem. General code cleanup and dependency updates was the theme of this release.
+
+### Changed
+- update dependencies. Deps with API changes:
+  - update tokio to 1.5, now on a stable release
+  - update socket2 to 0.4, now uses `Read` trait for reading from socket
+- replace deprecated `failure` crate with `thiserror`
+
 ## [0.3.0] - 2019-09-23
 ### Fixed
 - Make PingChainStream lazier ([#13](https://github.com/knsd/tokio-ping/pull/13))
