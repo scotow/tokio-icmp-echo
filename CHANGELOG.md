@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2022-03-17
+Small maintenance release, only internal changes.
+
+### Changed
+- updated dependencies
+- reformat code
+- fix clippy lints
+
 ## [0.4.0] - 2021-04-27
 This is a big change in tokio-ping, now known as tokio-icmp-echo: This is the first release of a fork of tokio-ping, which now works on current versions of the dependencies from the async rust ecosystem. General code cleanup and dependency updates was the theme of this release.
 
