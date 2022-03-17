@@ -55,7 +55,7 @@ pub struct PingFuture {
 }
 
 enum PingFutureKind {
-    Normal(NormalPingFutureKind),
+    Normal(Box<NormalPingFutureKind>),
     PacketEncodeError,
     InvalidProtocol,
 }
@@ -373,7 +373,7 @@ impl Pinger {
             }
         };
 
-        if let Err(_) = encode_result {
+        if encode_result.is_err() {
             return PingFuture {
                 inner: PingFutureKind::PacketEncodeError,
             };
@@ -382,14 +382,14 @@ impl Pinger {
         let send_future = socket.send_to(buffer, &dest);
 
         PingFuture {
-            inner: PingFutureKind::Normal(NormalPingFutureKind {
+            inner: PingFutureKind::Normal(Box::new(NormalPingFutureKind {
                 start_time: Instant::now(),
                 state: self.inner.state.clone(),
                 token,
                 sleep: Box::pin(sleep_until(deadline.into())),
                 send: Some(send_future),
                 receiver,
-            }),
+            })),
         }
     }
 }
