@@ -13,12 +13,12 @@ edition = "2021"
 [dependencies]
 futures = "0.3"
 libc = "0.2"
-mio = { version = "0.8", features = ["os-ext"] }
-rand = "0.8"
-socket2 = { version = "0.4", features = ["all"] }
+mio = { version = "1.0", features = ["os-ext"] }
+rand = "0.9"
+socket2 = { version = "0.5", features = ["all"] }
 tokio = { version = "1", features = ["rt", "time", "net"] }
 parking_lot = "0.12"
-thiserror = "1"
+thiserror = "2"
 
 [dev-dependencies]
 tokio = { version = "1", features = ["rt-multi-thread", "time", "macros"] }
