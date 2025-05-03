@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.3] - 2025-05-03
+Another small maintenance release.
+
+### Changed
+- dropped libc dependency
+- added `Eq` to `IpV4Protocol`
+- improved CI setup
+- documented 1.70.0 as the MSRV
+
 ## [0.4.2] - 2025-03-12
 Small maintenance release.
 

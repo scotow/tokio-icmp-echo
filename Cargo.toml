@@ -1,6 +1,6 @@
 [package]
 name = "tokio-icmp-echo"
-version = "0.4.2"
+version = "0.4.3"
 license = "MIT/Apache-2.0"
 authors = ["Fedor Gogolev <knsd@knsd.net>", "Jan Christian Grünhage <jan.christian@gruenhage.xyz"]
 documentation = "https://docs.rs/tokio-icmp-echo"
